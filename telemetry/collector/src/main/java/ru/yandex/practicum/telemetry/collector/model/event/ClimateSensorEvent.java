@@ -1,0 +1,23 @@
+package ru.yandex.practicum.telemetry.collector.model.event;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class ClimateSensorEvent extends SensorEvent {
+    private int temperatureC;
+    private int humidity;
+    private int co2Level;
+
+    protected ClimateSensorEvent(String hubId) {
+        super(hubId);
+    }
+
+    @Override
+    public SensorEventType getType() {
+        return SensorEventType.CLIMATE_SENSOR_EVENT;
+    }
+}
