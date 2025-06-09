@@ -12,7 +12,7 @@ public class MotionSensorEvent extends SensorEvent {
     private boolean motion;
     private int voltage;
 
-    protected MotionSensorEvent(String hubId) {
+    public MotionSensorEvent(String hubId) {
         super(hubId);
     }
 

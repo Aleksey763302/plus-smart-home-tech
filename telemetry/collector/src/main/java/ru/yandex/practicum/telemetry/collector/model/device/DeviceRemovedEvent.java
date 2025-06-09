@@ -1,7 +1,14 @@
 package ru.yandex.practicum.telemetry.collector.model.device;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString(callSuper = true)
 public class DeviceRemovedEvent extends DeviceEvent{
-    protected DeviceRemovedEvent(String hubId) {
+    public DeviceRemovedEvent(String hubId) {
         super(hubId);
     }
 

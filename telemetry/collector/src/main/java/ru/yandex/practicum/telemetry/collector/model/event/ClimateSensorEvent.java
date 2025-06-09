@@ -12,7 +12,7 @@ public class ClimateSensorEvent extends SensorEvent {
     private int humidity;
     private int co2Level;
 
-    protected ClimateSensorEvent(String hubId) {
+    public ClimateSensorEvent(String hubId) {
         super(hubId);
     }
 

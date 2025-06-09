@@ -18,7 +18,7 @@ public class ScenarioAddedEvent extends ScenarioEvent{
     @NotNull
     private List<DeviceAction> actions;
 
-    protected ScenarioAddedEvent(String hubId) {
+    public ScenarioAddedEvent(String hubId) {
         super(hubId);
     }
 

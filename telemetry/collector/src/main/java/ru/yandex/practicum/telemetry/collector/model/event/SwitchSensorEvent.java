@@ -10,7 +10,7 @@ import lombok.ToString;
 public class SwitchSensorEvent extends SensorEvent {
     private boolean state;
 
-    protected SwitchSensorEvent(String hubId) {
+    public SwitchSensorEvent(String hubId) {
         super(hubId);
     }
 

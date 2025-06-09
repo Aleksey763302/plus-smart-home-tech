@@ -11,7 +11,7 @@ public class TemperatureSensorEvent extends SensorEvent {
     private int temperatureC;
     private int temperatureF;
 
-    protected TemperatureSensorEvent(String hubId) {
+    public TemperatureSensorEvent(String hubId) {
         super(hubId);
     }
 

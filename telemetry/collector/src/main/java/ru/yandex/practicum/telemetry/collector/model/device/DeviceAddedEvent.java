@@ -11,7 +11,7 @@ public class DeviceAddedEvent extends DeviceEvent {
 
     private DeviceType deviceType;
 
-    protected DeviceAddedEvent(String hubId) {
+    public DeviceAddedEvent(String hubId) {
         super(hubId);
     }
 

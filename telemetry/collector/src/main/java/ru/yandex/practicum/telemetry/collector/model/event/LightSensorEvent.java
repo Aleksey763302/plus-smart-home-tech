@@ -11,7 +11,7 @@ public class LightSensorEvent extends SensorEvent {
     private int linkQuality;
     private int luminosity;
 
-    protected LightSensorEvent(String hubId) {
+    public LightSensorEvent(String hubId) {
         super(hubId);
     }
 
