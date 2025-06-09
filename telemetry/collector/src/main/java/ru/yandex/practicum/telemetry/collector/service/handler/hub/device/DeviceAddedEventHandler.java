@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceAddedEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceTypeAvro;
+import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceActionType;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceAddedEvent;
@@ -35,11 +36,10 @@ public class DeviceAddedEventHandler extends BaseEventHandler<DeviceAddedEventAv
 
     @Override
     protected SpecificRecordBase wrap(DeviceAddedEvent event, DeviceAddedEventAvro payload) {
-        return SensorEventAvro.newBuilder()
-                .setHubId(event.getHubId())
-                .setId(event.getId())
-                .setPayload(payload)
+        return HubEventAvro.newBuilder()
                 .setTimestamp(event.getTimestamp())
+                .setPayload(payload)
+                .setHubId(event.getHubId())
                 .build();
     }
 }

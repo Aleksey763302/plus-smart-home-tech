@@ -4,6 +4,7 @@ import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceRemovedEventAvro;
+import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceActionType;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceRemovedEvent;
@@ -31,11 +32,10 @@ public class DeviceRemovedEventHandler extends BaseEventHandler<DeviceRemovedEve
 
     @Override
     protected SpecificRecordBase wrap(DeviceRemovedEvent event, DeviceRemovedEventAvro payload) {
-        return SensorEventAvro.newBuilder()
-                .setHubId(event.getHubId())
-                .setId(event.getId())
-                .setPayload(payload)
+        return HubEventAvro.newBuilder()
                 .setTimestamp(event.getTimestamp())
+                .setPayload(payload)
+                .setHubId(event.getHubId())
                 .build();
     }
 }
