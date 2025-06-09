@@ -1,7 +1,5 @@
 package ru.yandex.practicum.telemetry.collector.model.scenario;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
