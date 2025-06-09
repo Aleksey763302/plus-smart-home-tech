@@ -36,8 +36,8 @@ public abstract class SensorEvent extends BaseEvent {
     @NotBlank
     private String id;
 
-    protected SensorEvent(String hubId) {
-        super(hubId);
+    protected SensorEvent() {
+        super();
     }
 
     @Override

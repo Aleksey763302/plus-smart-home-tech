@@ -35,8 +35,8 @@ public abstract class ScenarioEvent extends BaseEvent {
     @Min(3)
     private String name;
 
-    protected ScenarioEvent(String hubId) {
-        super(hubId);
+    protected ScenarioEvent() {
+        super();
     }
 
     @Override

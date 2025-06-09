@@ -1,5 +1,7 @@
 package ru.yandex.practicum.telemetry.collector.model.device;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,8 +13,8 @@ public class DeviceAddedEvent extends DeviceEvent {
 
     private DeviceType deviceType;
 
-    public DeviceAddedEvent(String hubId) {
-        super(hubId);
+    public DeviceAddedEvent() {
+        super();
     }
 
     @Override

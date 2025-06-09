@@ -27,8 +27,8 @@ public abstract class DeviceEvent extends BaseEvent{
     @NotBlank
     private String id;
 
-    protected DeviceEvent(String hubId) {
-        super(hubId);
+    protected DeviceEvent() {
+        super();
     }
 
     @Override

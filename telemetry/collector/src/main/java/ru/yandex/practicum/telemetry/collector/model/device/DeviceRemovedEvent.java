@@ -1,5 +1,7 @@
 package ru.yandex.practicum.telemetry.collector.model.device;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,8 +10,9 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class DeviceRemovedEvent extends DeviceEvent{
-    public DeviceRemovedEvent(String hubId) {
-        super(hubId);
+
+    public DeviceRemovedEvent() {
+        super();
     }
 
     @Override

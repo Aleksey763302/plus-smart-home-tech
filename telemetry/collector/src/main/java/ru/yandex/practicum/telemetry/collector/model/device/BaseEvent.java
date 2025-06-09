@@ -11,11 +11,10 @@ import java.time.Instant;
 @Getter
 public abstract class BaseEvent {
     @NotBlank
-    private final String hubId;
+    private String hubId;
     private final Instant timestamp;
 
-    protected BaseEvent(String hubId){
-        this.hubId = hubId;
+    protected BaseEvent(){
         this.timestamp = Instant.now();
     }
     @NotNull
