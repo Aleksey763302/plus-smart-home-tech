@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import ru.yandex.practicum.telemetry.collector.model.event.*;
+import ru.yandex.practicum.telemetry.collector.model.scenario.ScenarioAddedEvent;
+import ru.yandex.practicum.telemetry.collector.model.scenario.ScenarioRemovedEvent;
 
 import java.time.Instant;
 
@@ -16,8 +18,8 @@ import java.time.Instant;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = DeviceAddedEvent.class, name = "SCENARIO_ADDED"),
-        @JsonSubTypes.Type(value = DeviceRemovedEvent.class, name = "SCENARIO_REMOVED"),
+        @JsonSubTypes.Type(value = ScenarioAddedEvent.class, name = "SCENARIO_ADDED"),
+        @JsonSubTypes.Type(value = ScenarioRemovedEvent.class, name = "SCENARIO_REMOVED"),
         @JsonSubTypes.Type(value = DeviceAddedEvent.class, name = "DEVICE_ADDED"),
         @JsonSubTypes.Type(value = DeviceRemovedEvent.class, name = "DEVICE_REMOVED"),
         @JsonSubTypes.Type(value = MotionSensorEvent.class, name = "MOTION_SENSOR_EVENT"),
