@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import ru.yandex.practicum.kafka.telemetry.event.LightSensorAvro;
 import ru.yandex.practicum.telemetry.collector.service.EventSerializer;
 import ru.yandex.practicum.telemetry.collector.service.BaseEventHandler;
-import ru.yandex.practicum.telemetry.collector.service.avro.handler.AvroEventHandler;
 
 @Component
 public class LightSensorEventAvroHandler extends BaseEventHandler<LightSensorAvro, LightSensorEvent> {

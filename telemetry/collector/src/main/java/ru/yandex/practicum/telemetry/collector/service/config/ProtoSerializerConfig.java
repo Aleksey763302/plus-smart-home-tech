@@ -15,44 +15,52 @@ public class ProtoSerializerConfig {
     }
 
     @Bean
-    public EventSerializer<DeviceAddedEventProto> deviceAddedProtoSerializer(){
+    public EventSerializer<DeviceAddedEventProto> deviceAddedProtoSerializer() {
         return serializer::send;
     }
 
     @Bean
-    public EventSerializer<DeviceRemovedEventProto> deviceRemovedProtoSerializer(){
+    public EventSerializer<DeviceRemovedEventProto> deviceRemovedProtoSerializer() {
         return serializer::send;
     }
 
     @Bean
-    public EventSerializer<ScenarioAddedEventProto>scenarioAddedProtoSerializer(){
+    public EventSerializer<ScenarioAddedEventProto> scenarioAddedProtoSerializer() {
         return serializer::send;
     }
 
     @Bean
-    public EventSerializer<ScenarioRemovedEventProto>scenarioRemovedProtoSerializer(){
+    public EventSerializer<ScenarioRemovedEventProto> scenarioRemovedProtoSerializer() {
         return serializer::send;
     }
 
     @Bean
-    public EventSerializer<ClimateSensorProto>climateSensorProtoSerializer(){
+    public EventSerializer<ClimateSensorProto> climateSensorProtoSerializer() {
         return serializer::send;
     }
 
     @Bean
-    public EventSerializer<LightSensorProto>lightSensorProtoSerializer(){
+    public EventSerializer<LightSensorProto> lightSensorProtoSerializer() {
         return serializer::send;
     }
+
     @Bean
-    public EventSerializer<MotionSensorProto>motionSensorProtoSerializer(){
+    public EventSerializer<MotionSensorProto> motionSensorProtoSerializer() {
         return serializer::send;
     }
+
     @Bean
-    public EventSerializer<SwitchSensorProto>switchSensorProtoSerializer(){
+    public EventSerializer<SwitchSensorProto> switchSensorProtoSerializer() {
         return serializer::send;
     }
+
     @Bean
-    public EventSerializer<TemperatureSensorProto>temperatureSensorProtoSerializer(){
+    public EventSerializer<TemperatureSensorProto> temperatureSensorProtoSerializer() {
+        return serializer::send;
+    }
+
+    @Bean
+    public EventSerializer<SensorEventProto> sensorEventProtoEventSerializer() {
         return serializer::send;
     }
 }

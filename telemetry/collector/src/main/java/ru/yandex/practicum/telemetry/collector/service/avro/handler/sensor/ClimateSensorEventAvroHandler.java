@@ -6,7 +6,6 @@ import ru.yandex.practicum.telemetry.collector.model.event.ClimateSensorEvent;
 import ru.yandex.practicum.telemetry.collector.model.event.SensorEventType;
 import ru.yandex.practicum.telemetry.collector.service.EventSerializer;
 import ru.yandex.practicum.telemetry.collector.service.BaseEventHandler;
-import ru.yandex.practicum.telemetry.collector.service.avro.handler.AvroEventHandler;
 
 @Component
 public class ClimateSensorEventAvroHandler extends BaseEventHandler<ClimateSensorAvro, ClimateSensorEvent> {

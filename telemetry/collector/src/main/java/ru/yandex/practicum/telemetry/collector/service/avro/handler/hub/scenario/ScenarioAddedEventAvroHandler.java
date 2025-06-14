@@ -6,7 +6,6 @@ import ru.yandex.practicum.telemetry.collector.model.device.DeviceActionType;
 import ru.yandex.practicum.telemetry.collector.model.scenario.ScenarioAddedEvent;
 import ru.yandex.practicum.telemetry.collector.service.EventSerializer;
 import ru.yandex.practicum.telemetry.collector.service.BaseEventHandler;
-import ru.yandex.practicum.telemetry.collector.service.avro.handler.AvroEventHandler;
 
 import java.util.List;
 
