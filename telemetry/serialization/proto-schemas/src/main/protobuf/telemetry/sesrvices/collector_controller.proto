@@ -10,6 +10,6 @@ option java_multiple_files = true;
 option java_package = "ru.yandex.practicum.grpc.telemetry.collector";
 
 service CollectorController {
-  rpc collectSensorEvent(message.event.SensorEventProto) returns (google.protobuf.Empty) {}
-  rpc collectHubEvent(message.event.HubEventProto) returns (google.protobuf.Empty){}
+  rpc collectSensorEvent(telemetry.message.event.SensorEventProto) returns (google.protobuf.Empty);
+  rpc collectHubEvent(telemetry.message.event.HubEventProto) returns (google.protobuf.Empty);
 }
