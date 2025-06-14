@@ -42,6 +42,7 @@ public class CollectorController extends CollectorControllerGrpc.CollectorContro
 
     @Override
     public void collectSensorEvent(SensorEventProto request, StreamObserver<Empty> responseObserver){
+        System.out.println("метод collectSensorEvent: " + request);
         try {
             Enum<?> type = request.getPayloadCase();
             BaseEventProtoHandler<?> handler = sensorEventHandlerMap.get(type);
@@ -63,6 +64,7 @@ public class CollectorController extends CollectorControllerGrpc.CollectorContro
 
     @Override
     public void collectHubEvent(HubEventProto request, StreamObserver<Empty> responseObserver){
+        System.out.println("метод collectHubEvent: " + request);
         try {
             Enum<?> type = request.getPayloadCase();
             BaseEventProtoHandler<?> handler = hubEventHandlerMap.get(type);
