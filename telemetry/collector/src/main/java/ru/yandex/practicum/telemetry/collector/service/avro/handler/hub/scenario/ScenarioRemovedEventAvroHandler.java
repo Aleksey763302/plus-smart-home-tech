@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service.handler.hub.scenario;
+package ru.yandex.practicum.telemetry.collector.service.avro.handler.hub.scenario;
 
 import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,13 +7,13 @@ import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.ScenarioRemovedEventAvro;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceActionType;
 import ru.yandex.practicum.telemetry.collector.model.scenario.ScenarioRemovedEvent;
-import ru.yandex.practicum.telemetry.collector.service.KafkaEventProducer;
-import ru.yandex.practicum.telemetry.collector.service.handler.BaseEventHandler;
+import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
+import ru.yandex.practicum.telemetry.collector.service.avro.handler.BaseEventAvroHandler;
 
 @Component
 @Qualifier("hub")
-public class ScenarioRemovedEventHandler extends BaseEventHandler<ScenarioRemovedEventAvro, ScenarioRemovedEvent> {
-    public ScenarioRemovedEventHandler(KafkaEventProducer producer) {
+public class ScenarioRemovedEventAvroHandler extends BaseEventAvroHandler<ScenarioRemovedEventAvro, ScenarioRemovedEvent> {
+    public ScenarioRemovedEventAvroHandler(KafkaEventProducerAvro producer) {
         super(producer);
     }
 

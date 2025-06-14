@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service.handler.hub.device;
+package ru.yandex.practicum.telemetry.collector.service.avro.handler.hub.device;
 
 import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -6,17 +6,16 @@ import org.springframework.stereotype.Component;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceAddedEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceTypeAvro;
 import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
-import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceActionType;
 import ru.yandex.practicum.telemetry.collector.model.device.DeviceAddedEvent;
-import ru.yandex.practicum.telemetry.collector.service.KafkaEventProducer;
-import ru.yandex.practicum.telemetry.collector.service.handler.BaseEventHandler;
+import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
+import ru.yandex.practicum.telemetry.collector.service.avro.handler.BaseEventAvroHandler;
 
 @Component
 @Qualifier("hub")
-public class DeviceAddedEventHandler extends BaseEventHandler<DeviceAddedEventAvro,DeviceAddedEvent> {
+public class DeviceAddedEventAvroHandler extends BaseEventAvroHandler<DeviceAddedEventAvro,DeviceAddedEvent> {
 
-    public DeviceAddedEventHandler(KafkaEventProducer producer){
+    public DeviceAddedEventAvroHandler(KafkaEventProducerAvro producer){
         super(producer);
     }
 

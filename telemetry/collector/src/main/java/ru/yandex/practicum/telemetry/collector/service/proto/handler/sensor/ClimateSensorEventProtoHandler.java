@@ -1,0 +1,21 @@
+package ru.yandex.practicum.telemetry.collector.service.proto.handler.sensor;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import ru.yandex.practicum.grpc.telemetry.event.ClimateSensorProto;
+import ru.yandex.practicum.grpc.telemetry.event.SensorEventProto;
+import ru.yandex.practicum.telemetry.collector.service.proto.KafkaEventProducerProto;
+import ru.yandex.practicum.telemetry.collector.service.proto.handler.BaseEventProtoHandler;
+
+@Component
+@Qualifier("sensor")
+public class ClimateSensorEventProtoHandler extends BaseEventProtoHandler<ClimateSensorProto> {
+    public ClimateSensorEventProtoHandler(KafkaEventProducerProto producer) {
+        super(producer);
+    }
+
+    @Override
+    public Enum<?> getMessageType() {
+        return SensorEventProto.PayloadCase.CLIMATE_SENSOR_EVENT;
+    }
+}

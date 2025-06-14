@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service.handler.sensor;
+package ru.yandex.practicum.telemetry.collector.service.avro.handler.sensor;
 
 import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,13 +7,13 @@ import ru.yandex.practicum.kafka.telemetry.event.MotionSensorAvro;
 import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 import ru.yandex.practicum.telemetry.collector.model.event.MotionSensorEvent;
 import ru.yandex.practicum.telemetry.collector.model.event.SensorEventType;
-import ru.yandex.practicum.telemetry.collector.service.KafkaEventProducer;
-import ru.yandex.practicum.telemetry.collector.service.handler.BaseEventHandler;
+import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
+import ru.yandex.practicum.telemetry.collector.service.avro.handler.BaseEventAvroHandler;
 
 @Component
 @Qualifier("sensor")
-public class MotionSensorEventHandler extends BaseEventHandler<MotionSensorAvro,MotionSensorEvent> {
-    public MotionSensorEventHandler(KafkaEventProducer producer){
+public class MotionSensorEventAvroHandler extends BaseEventAvroHandler<MotionSensorAvro,MotionSensorEvent> {
+    public MotionSensorEventAvroHandler(KafkaEventProducerAvro producer){
         super(producer);
     }
 
