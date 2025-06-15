@@ -11,6 +11,13 @@
 
     <artifactId>collector</artifactId>
 
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>ru.yandex.practicum</groupId>
@@ -62,6 +69,35 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.practicum</groupId>
+            <artifactId>proto-schemas</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-server-spring-boot-starter</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>1.63.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+            <version>1.63.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-protobuf-serializer</artifactId>
+            <version>7.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -69,6 +105,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <mainClass>ru.yandex.practicum.telemetry.collector.Collector</mainClass>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -102,8 +142,10 @@
                             <goal>idl-protocol</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${project.basedir}/../serialization/avro-schemas/src/main/avro</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/src/main/target/generated-sources/avro</outputDirectory>
+                            <sourceDirectory>${project.basedir}/../serialization/avro-schemas/src/main/avro
+                            </sourceDirectory>
+                            <outputDirectory>${project.build.directory}/src/main/target/generated-sources/avro
+                            </outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

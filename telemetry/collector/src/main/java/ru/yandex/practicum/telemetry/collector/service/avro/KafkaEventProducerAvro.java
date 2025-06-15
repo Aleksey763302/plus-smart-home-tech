@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service;
+package ru.yandex.practicum.telemetry.collector.service.avro;
 
 
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 
 @Component
 @RequiredArgsConstructor
-public class KafkaEventProducer {
+public class KafkaEventProducerAvro {
     private final KafkaTemplate<String,SpecificRecordBase> kafkaTemplate;
 
 
