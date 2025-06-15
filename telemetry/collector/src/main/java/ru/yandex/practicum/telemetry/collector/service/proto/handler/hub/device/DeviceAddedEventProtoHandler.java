@@ -20,6 +20,7 @@ public class DeviceAddedEventProtoHandler extends BaseEventProtoHandler<HubEvent
 
     @Override
     public void handle(HubEventProto event) {
+        System.out.println("Sending event to Kafka: " + event);
         producer.send(event);
     }
 
