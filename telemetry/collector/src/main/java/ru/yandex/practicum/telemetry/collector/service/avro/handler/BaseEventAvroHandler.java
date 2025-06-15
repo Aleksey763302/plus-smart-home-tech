@@ -1,13 +1,15 @@
 package ru.yandex.practicum.telemetry.collector.service.avro.handler;
 
-import lombok.RequiredArgsConstructor;
 import org.apache.avro.specific.SpecificRecordBase;
 import ru.yandex.practicum.telemetry.collector.model.device.BaseEvent;
 import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
 
-@RequiredArgsConstructor
 public abstract class BaseEventAvroHandler<T extends SpecificRecordBase, E extends BaseEvent> {
     protected final KafkaEventProducerAvro producer;
+
+    protected BaseEventAvroHandler(KafkaEventProducerAvro producer) {
+        this.producer = producer;
+    }
 
     protected abstract T mapToAvro(E event);
 

@@ -11,6 +11,13 @@
 
     <artifactId>collector</artifactId>
 
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>ru.yandex.practicum</groupId>
@@ -86,7 +93,11 @@
             <version>1.63.0</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-protobuf-serializer</artifactId>
+            <version>7.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -127,8 +138,10 @@
                             <goal>idl-protocol</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${project.basedir}/../serialization/avro-schemas/src/main/avro</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/src/main/target/generated-sources/avro</outputDirectory>
+                            <sourceDirectory>${project.basedir}/../serialization/avro-schemas/src/main/avro
+                            </sourceDirectory>
+                            <outputDirectory>${project.build.directory}/src/main/target/generated-sources/avro
+                            </outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

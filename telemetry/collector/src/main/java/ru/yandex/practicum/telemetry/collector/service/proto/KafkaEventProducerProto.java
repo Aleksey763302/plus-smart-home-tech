@@ -11,22 +11,15 @@ import ru.yandex.practicum.grpc.telemetry.event.SensorEventProto;
 @RequiredArgsConstructor
 @Component
 public class KafkaEventProducerProto {
-    private final KafkaTemplate<String, MessageLite> kafkaTemplate;
 
-    public void send(MessageLite event){
-        String topic = resolveTopic(event);
+    private final KafkaTemplate<String, HubEventProto> hubEventKafkaTemplate;
+    private final KafkaTemplate<String, SensorEventProto> sensorEventKafkaTemplate;
 
-        ProducerRecord<String, MessageLite> record = new ProducerRecord<>(topic, event);
-        kafkaTemplate.send(record);
+    public void send(HubEventProto event) {
+        hubEventKafkaTemplate.send("telemetry.hubs.v1", event);
     }
 
-    private String resolveTopic(MessageLite event) {
-        if (event instanceof SensorEventProto) {
-            return "telemetry.sensors.v1";
-        } else if (event instanceof HubEventProto) {
-            return "telemetry.hubs.v1";
-        } else {
-            throw new IllegalArgumentException("Неизвестный тип события: " + event.getClass());
-        }
+    public void send(SensorEventProto event) {
+        sensorEventKafkaTemplate.send("telemetry.sensors.v1", event);
     }
 }

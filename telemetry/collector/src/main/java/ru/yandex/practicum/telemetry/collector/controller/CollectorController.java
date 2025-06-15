@@ -38,6 +38,8 @@ public class CollectorController extends CollectorControllerGrpc.CollectorContro
                         BaseEventProtoHandler::getMessageType,
                         Function.identity()
                 ));
+        System.out.println("hubEventHandlerMap " + hubEventHandlerMap.size());
+        System.out.println("sensorEventHandlerMap " + sensorEventHandlerMap.size());
     }
 
     @Override
