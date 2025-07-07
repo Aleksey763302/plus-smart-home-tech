@@ -64,6 +64,9 @@ public class CollectorController extends CollectorControllerGrpc.CollectorContro
     @Override
     public void collectHubEvent(HubEventProto request, StreamObserver<Empty> responseObserver){
         try {
+            System.out.println("Получено сообщение:");
+            System.out.println(request);
+
             Enum<?> type = request.getPayloadCase();
             BaseEventProtoHandler<?> handler = hubEventHandlerMap.get(type);
 

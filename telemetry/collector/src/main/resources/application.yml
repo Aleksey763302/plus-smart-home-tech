@@ -1,7 +1,12 @@
 spring:
   kafka:
     producer:
-      value-serializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufSerializer
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: ru.yandex.practicum.kafka.serializer.GeneralProtobufSerializer
+
 grpc:
   server:
     port: 59091
+    http2:
+      enabled: true

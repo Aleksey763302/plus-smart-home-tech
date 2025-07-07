@@ -2,8 +2,6 @@ package ru.yandex.practicum.kafka.serializer;
 
 import org.apache.kafka.common.serialization.Serializer;
 
-import java.io.ByteArrayOutputStream;
-
 public class GeneralProtobufSerializer implements Serializer<Object> {
 
     @Override

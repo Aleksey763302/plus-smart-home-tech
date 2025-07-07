@@ -3,14 +3,16 @@ package ru.yandex.practicum.telemetry.collector.service.proto.handler.hub.device
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.grpc.telemetry.event.HubEventProto;
+import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
+import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
 import ru.yandex.practicum.telemetry.collector.service.proto.KafkaEventProducerProto;
 import ru.yandex.practicum.telemetry.collector.service.proto.handler.BaseEventProtoHandler;
 
 @Component
 @Qualifier("hub")
 public class DeviceAddedEventProtoHandler extends BaseEventProtoHandler<HubEventProto> {
-    public DeviceAddedEventProtoHandler(KafkaEventProducerProto producer) {
-        super(producer);
+    public DeviceAddedEventProtoHandler(KafkaEventProducerProto producer, KafkaEventProducerAvro producerAvro) {
+        super(producer, producerAvro);
     }
 
     @Override
@@ -20,8 +22,9 @@ public class DeviceAddedEventProtoHandler extends BaseEventProtoHandler<HubEvent
 
     @Override
     public void handle(HubEventProto event) {
-        System.out.println("Sending event to Kafka: " + event);
-        producer.send(event);
+        HubEventAvro avroEvent = hubMapper.map(event);
+        producerAvro.send(avroEvent);
+
     }
 
 }
