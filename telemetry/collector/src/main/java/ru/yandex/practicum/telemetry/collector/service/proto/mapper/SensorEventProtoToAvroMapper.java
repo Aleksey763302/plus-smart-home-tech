@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service.mapper;
+package ru.yandex.practicum.telemetry.collector.service.proto.mapper;
 
 import ru.yandex.practicum.grpc.telemetry.event.*;
 import ru.yandex.practicum.kafka.telemetry.event.*;

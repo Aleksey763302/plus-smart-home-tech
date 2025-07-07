@@ -3,16 +3,14 @@ package ru.yandex.practicum.telemetry.collector.service.proto.handler.hub.scenar
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.grpc.telemetry.event.HubEventProto;
-import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
 import ru.yandex.practicum.telemetry.collector.service.avro.KafkaEventProducerAvro;
-import ru.yandex.practicum.telemetry.collector.service.proto.KafkaEventProducerProto;
 import ru.yandex.practicum.telemetry.collector.service.proto.handler.BaseEventProtoHandler;
 
 @Component
 @Qualifier("hub")
 public class ScenarioRemovedEventProtoHandler extends BaseEventProtoHandler<HubEventProto> {
-    public ScenarioRemovedEventProtoHandler(KafkaEventProducerProto producer, KafkaEventProducerAvro producerAvro) {
-        super(producer, producerAvro);
+    public ScenarioRemovedEventProtoHandler(KafkaEventProducerAvro producerAvro) {
+        super(producerAvro);
     }
 
     @Override
@@ -20,9 +18,4 @@ public class ScenarioRemovedEventProtoHandler extends BaseEventProtoHandler<HubE
         return HubEventProto.PayloadCase.SCENARIO_REMOVED;
     }
 
-    @Override
-    public void handle(HubEventProto event) {
-        HubEventAvro avroEvent = hubMapper.map(event);
-        producerAvro.send(avroEvent);
-    }
 }

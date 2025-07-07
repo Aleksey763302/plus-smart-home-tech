@@ -3,7 +3,7 @@ spring:
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: ru.yandex.practicum.kafka.serializer.GeneralProtobufSerializer
+      value-serializer: ru.yandex.practicum.kafka.serializer.GeneralAvroSerializer
 
 grpc:
   server:

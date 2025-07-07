@@ -1,4 +1,4 @@
-package ru.yandex.practicum.telemetry.collector.service.mapper;
+package ru.yandex.practicum.telemetry.collector.service.proto.mapper;
 import com.google.protobuf.MessageLite;
 import org.apache.avro.specific.SpecificRecordBase;
 
